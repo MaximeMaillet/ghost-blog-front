@@ -13,7 +13,7 @@ export class Authors extends Component {
 
   render() {
     return (
-      <div className="author">{
+      <div className={this.props.className}>{
         `Auteurs : ${this.props.authors.map((author) => {
           return author.name;
         })}`

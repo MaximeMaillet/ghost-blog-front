@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import withOnePost from "../../Hoc/withOnePost";
 import Authors from "../Authors/Authors";
+
+import './posts.scss'
+import Date from "../Date/Date";
 
 export class Post extends Component {
 
@@ -22,18 +24,17 @@ export class Post extends Component {
   };
 
   render() {
-    console.log(this.props)
     return (
-      <div className="post">
+      <article className={`post ${this.props.className}`}>
         <div className="header">
-          <div className="title">{this.props.title}</div>
-          <Authors authors={this.props.authors} />
-          <div className="date">{this.props.published_at}</div>
+          <div className="date"><Date date={this.props.published_at} /></div>
+          <Authors className="authors" authors={this.props.authors} />
         </div>
+        <h1 className="title">{this.props.title}</h1>
         <div className="body" dangerouslySetInnerHTML={{__html: this.props.html}} />
-      </div>
+      </article>
     );
   }
 }
 
-export default withOnePost(Post);
+export default Post;

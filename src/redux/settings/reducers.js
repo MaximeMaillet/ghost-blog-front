@@ -2,7 +2,7 @@ import {TYPE} from "./actions";
 
 const initialState = {
   loading: false,
-  data: {},
+  data: null,
 };
 
 export default function(state = initialState, actions) {

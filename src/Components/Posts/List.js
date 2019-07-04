@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Excerpt from "./Excerpt";
 
+import './posts.scss';
+
 export default class List extends Component {
 
   static propTypes = {
@@ -14,7 +16,7 @@ export default class List extends Component {
 
   render() {
     return (
-      <div className="post-list">
+      <div className={`post-list d-flex flex-column ${this.props.className}`}>
         {this.props.posts.map((item, index) => {
           return <Excerpt {...item} key={index} />;
         })}

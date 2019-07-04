@@ -1,0 +1,16 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import "./styles/colors";
+
+body, html {
+    background-color: $break-white;
+}
+
+@mixin overlap-top($value) {
+  margin-top: $value !important;
+}
+
+.overlap-top-10 { @include overlap-top(-10vh); }
+.overlap-top-20 { @include overlap-top(-20vh); }
+.overlap-top-30 { @include overlap-top(-30vh); }
+.overlap-top-40 { @include overlap-top(-40vh); }
+.overlap-top-50 { @include overlap-top(-50vh); }

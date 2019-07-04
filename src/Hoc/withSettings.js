@@ -11,14 +11,20 @@ export default function withSettings(BaseComponent) {
       }
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+      if(!nextProps.data) {
+        this.props.load();
+      }
+    }
+
     render() {
-      const {data, loading, ...rest} = this.props;
+      const {data, loading} = this.props;
 
       if(loading || !data) {
         return <Loading />;
       }
 
-      return <BaseComponent {...rest} settings={data} />;
+      return <BaseComponent {...this.props} {...data} />;
     }
   }
 

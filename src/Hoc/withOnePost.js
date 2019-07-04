@@ -19,7 +19,7 @@ export default function withOnePost(BaseComponent) {
         return <Loading />;
       }
 
-      return <BaseComponent {...data.post} />;
+      return <BaseComponent {...this.props} {...data.post} />;
     }
   }
 

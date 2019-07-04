@@ -1,0 +1,72 @@
+@import "../../styles/colors";
+
+article.post-excerpt {
+  display: flex;
+  flex-direction: row;
+  min-height: 30vh;
+  margin: 1em;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+
+  .image {
+    border-radius: 5px 0;
+    img {
+      border-radius: 5px 0 0 5px;
+      max-width:100%;
+      max-height: 100vh;
+    }
+  }
+
+  .text {
+    margin: 1em 1em 0 1em;
+
+    .date {
+      color: $grey;
+      font-size: 0.7rem;
+      text-align: right;
+    }
+
+    .authors {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+
+      h2 {
+        color: $black;
+      }
+
+      .excerpt {
+        margin-top: 1em;
+        color: $black;
+      }
+    }
+  }
+}
+
+article.post {
+  display: flex;
+  flex-direction: column;
+  min-height: 30vh;
+  padding: 1em;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+  color: $black;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+
+    .authors {
+      margin-left: auto;
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+}
