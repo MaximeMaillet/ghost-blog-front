@@ -1,10 +1,4 @@
-import GhostContentAPI from "@tryghost/content-api";
-
-const api = new GhostContentAPI({
-  url: 'http://localhost:8083',
-  key: 'db900af159030c5305e5b2c290',
-  version: 'v2'
-});
+import api from '../../libraries/api';
 
 export const TYPE = {
   START_LOADING: 'Posts/start_loading',

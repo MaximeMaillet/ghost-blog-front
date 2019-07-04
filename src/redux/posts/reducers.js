@@ -2,7 +2,6 @@ import {TYPE} from "./actions";
 
 const initialState = {
   loading: false,
-  loaded: false,
   data: {},
 };
 
