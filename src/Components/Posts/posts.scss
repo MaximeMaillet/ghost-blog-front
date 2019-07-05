@@ -67,10 +67,25 @@ article.post {
     font-size: 0.7em;
   }
 
-  h1 {
+  h1.title {
     font-family: 'DM Serif Text', serif;
     font-size: 2em;
     text-align: center;
+    margin: 1em 0 2em 0;
+  }
+
+  .body {
+    padding:0 2em;
+    text-align: justify;
+
+    ul {
+      list-style-type: none;
+
+      li:before {
+        content: '\2013';
+        margin-right: 1em;
+      }
+    }
   }
 }
 
