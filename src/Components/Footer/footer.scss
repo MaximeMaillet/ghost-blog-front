@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 footer {
   height: 50vh;
   background-size: cover;
@@ -7,4 +9,38 @@ footer {
   -webkit-box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
   -moz-box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
   box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
+
+  .text {
+    width: 100%;
+    background-color: $primary;
+    height: 100%;
+    margin: 15vh 0 5vh 0;
+    color: $white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    .about {
+      font-family: 'Crimson Text', serif;
+      text-align: justify;
+      width: 20%;
+    }
+
+    .links {
+      margin-left: auto;
+    }
+
+    .part {
+      margin: 0 1em;
+      h4 {
+        font-size: 0.8em;
+        color: $grey;
+      }
+
+      a {
+        font-size: 0.7em;
+        color: $white;
+        display: inline;
+      }
+    }
+  }
 }

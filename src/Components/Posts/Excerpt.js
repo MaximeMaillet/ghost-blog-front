@@ -26,20 +26,20 @@ export default class Excerpt extends Component {
     return (
       <article className="post-excerpt">
         <div className="image">
-          <Link to={`/posts/${this.props.slug}`}>
+          <Link to={`/histoires/${this.props.slug}`}>
             <img src={this.props.feature_image} alt="illustration" />
           </Link>
         </div>
         <div className="text">
           <div className="date"><Date date={this.props.published_at}/></div>
-          <Link to={`/posts/${this.props.slug}`}>
+          <Link to={`/histoires/${this.props.slug}`}>
             <h2 className="title">{this.props.title}</h2>
           </Link>
           <Authors
             className="authors"
             authors={this.props.authors}
           />
-          <Link to={`/posts/${this.props.slug}`}>
+          <Link to={`/histoires/${this.props.slug}`}>
             <div className="excerpt">
               {this.props.custom_excerpt}
             </div>

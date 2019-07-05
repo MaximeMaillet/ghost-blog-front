@@ -7,8 +7,12 @@ import {withRouter} from "react-router-dom";
 export default function withOnePost(BaseComponent) {
   class PostsComponent extends React.PureComponent {
     componentDidMount() {
-      if(!this.props.data.post) {
-        this.props.loadPost(this.props.match.params.slug);
+      this.props.loadPost(this.props.match.params.slug);
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+      if(nextProps.match.params.slug !== this.props.match.params.slug) {
+        this.props.loadPost(nextProps.match.params.slug);
       }
     }
 

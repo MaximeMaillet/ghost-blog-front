@@ -9,9 +9,7 @@ export default class Date extends Component {
   };
 
   render() {
-    const date = moment(this.props.date);
     moment.locale('fr', localization);
-    console.log(moment(1316116057189).fromNow());
-    return date.format('LL');
+    return moment(this.props.date).format('LL');
   }
 }

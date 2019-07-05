@@ -28,4 +28,4 @@ class List extends Component {
   }
 }
 
-export default withPosts(List);
+export default List;

@@ -3,6 +3,7 @@ import List from "../Components/Posts/List";
 import BackgroundImage from "../Components/BackgroundImage/BackgroundImage";
 import withSettings from "../Hoc/withSettings";
 import Footer from "../Components/Footer/Footer";
+import withPosts from "../Hoc/withPosts";
 
 export class Home extends Component {
   componentDidMount() {
@@ -24,6 +25,8 @@ export class Home extends Component {
         <div className="container">
           <List
             className="overlap-top-20"
+            posts={this.props.posts}
+            pagination={this.props.pagination}
           />
         </div>
         <Footer
@@ -34,4 +37,4 @@ export class Home extends Component {
   }
 }
 
-export default withSettings(Home);
+export default withSettings(withPosts(Home));
