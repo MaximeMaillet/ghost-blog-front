@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Loading from '../Components/Posts/Loading';
 import actionsSettings from '../redux/settings/actions';
 
 export default function withSettings(BaseComponent) {
@@ -18,13 +17,7 @@ export default function withSettings(BaseComponent) {
     }
 
     render() {
-      const {data, loading} = this.props;
-
-      if(loading || !data) {
-        return <Loading />;
-      }
-
-      return <BaseComponent {...this.props} {...data} />;
+      return <BaseComponent {...this.props} {...this.props.data} />;
     }
   }
 

@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import Excerpt from "./Excerpt";
 
 import './posts.scss';
+import withPosts from "../../Hoc/withPosts";
 
-export default class List extends Component {
+class List extends Component {
 
   static propTypes = {
     posts: PropTypes.array,
+    pagination: PropTypes.object,
   };
 
   static defaultProps = {
     posts: [],
+    pagination: {},
   };
 
   render() {
@@ -24,3 +27,5 @@ export default class List extends Component {
     );
   }
 }
+
+export default withPosts(List);

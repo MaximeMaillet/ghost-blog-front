@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Loading from '../Components/Posts/Loading';
 import actionsPosts from '../redux/posts/actions';
+import LoadingList from "../Components/Posts/LoadingList";
 
 export default function withPosts(BaseComponent) {
   class PostsComponent extends React.PureComponent {
@@ -15,7 +15,7 @@ export default function withPosts(BaseComponent) {
       const {data, loading} = this.props;
 
       if(loading || !data.posts) {
-        return <Loading />;
+        return <LoadingList className={this.props.className} />;
       }
 
       return <BaseComponent {...this.props} posts={data.posts} pagination={data.pagination} />;

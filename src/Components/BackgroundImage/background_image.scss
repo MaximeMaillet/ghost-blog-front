@@ -1,0 +1,26 @@
+@import '../../styles/colors.scss';
+
+div.background-image {
+  height: 65vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: -1px 9px 14px -1px rgba(0,0,0,0.38);
+  -moz-box-shadow: -1px 9px 14px -1px rgba(0,0,0,0.38);
+  box-shadow: -1px 9px 14px -1px rgba(0,0,0,0.38);
+  font-family: 'DM Serif Text', serif;
+
+  .titles {
+    margin-top: -10vh;
+    background-color: rgba(0,0,0,0.7);
+    padding: 1rem;
+    text-align: center;
+
+    h1 {
+      color: $break-white;
+    }
+
+    h3 {
+      color: $break-white;
+    }
+  }
+}

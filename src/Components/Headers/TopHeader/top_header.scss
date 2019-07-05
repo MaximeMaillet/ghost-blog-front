@@ -1,0 +1,38 @@
+@import "../../../styles/colors";
+
+header.top-header {
+  height: 10vh;
+  background-color: $black;
+  color: $break-white;
+  padding: 1rem;
+
+  .logo {
+    background-color: $break-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    img {
+      max-width: 6vh;
+    }
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+  .titles {
+    margin-left: 1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    h3 {
+      margin: 0.2rem 0 0 0;
+      font-size: 0.8em;
+    }
+  }
+}

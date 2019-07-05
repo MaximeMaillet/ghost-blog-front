@@ -1,27 +1,37 @@
 import React, {Component} from 'react';
-import withPosts from "../Hoc/withPosts";
 import List from "../Components/Posts/List";
-import SplashHeader from "../Components/Headers/SplashHeaders/SplashHeader";
+import BackgroundImage from "../Components/BackgroundImage/BackgroundImage";
+import withSettings from "../Hoc/withSettings";
+import Footer from "../Components/Footer/Footer";
 
 export class Home extends Component {
   componentDidMount() {
+    document.title = 'Blog';
+  }
 
+  componentWillReceiveProps(nextProps, nextContext) {
+    document.title = nextProps.title;
   }
 
   render() {
     return (
       <div className="container-fluid p-0 container-home">
-        <SplashHeader />
+        <BackgroundImage
+          splash={this.props.cover_image}
+          description={this.props.description}
+          title={this.props.title}
+        />
         <div className="container">
           <List
             className="overlap-top-20"
-            posts={this.props.posts}
-            pagination={this.props.pagination}
           />
         </div>
+        <Footer
+          image={this.props.cover_image}
+        />
       </div>
     );
   }
 }
 
-export default withPosts(Home);
+export default withSettings(Home);

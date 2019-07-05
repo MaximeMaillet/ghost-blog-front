@@ -56,7 +56,6 @@ const load = (filter) => {
       const response = await api.posts.browse({include: 'tags,authors'});
       const pagination = response['meta']['pagination'];
       delete response['meta'];
-
       dispatch(loadingSuccess({
         posts: response,
         pagination,

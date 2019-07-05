@@ -14,7 +14,7 @@ export class Authors extends Component {
   render() {
     return (
       <div className={this.props.className}>{
-        `Auteurs : ${this.props.authors.map((author) => {
+        `Écrit par ${this.props.authors.map((author) => {
           return author.name;
         })}`
       }</div>
