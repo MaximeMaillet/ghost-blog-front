@@ -36,8 +36,6 @@ class Footer extends Component {
   };
 
   render() {
-    console.log('FOOTER');
-    console.log(this.props);
     return (
       <footer className="footer d-flex flex-column align-items-center justify-content-center" style={{
         backgroundImage: `url('${this.props.image}')`,
