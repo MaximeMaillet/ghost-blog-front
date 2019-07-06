@@ -23,10 +23,12 @@ export default class BackgroundImage extends Component {
         backgroundImage: `url('${this.props.splash ? this.props.splash : this.props.cover_image}')`,
       }}>
         {this.props.showTitles &&
-        <div className="titles">
-          <h1>{this.props.title}</h1>
-          <h3 className="description">{this.props.description}</h3>
-        </div>}
+          <div className="container">
+            <div className="titles">
+              <h1>{this.props.title}</h1>
+              <h3 className="description">{this.props.description}</h3>
+            </div>
+          </div>}
       </div>
     );
   }
