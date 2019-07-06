@@ -24,13 +24,9 @@ export class Story extends Component {
     this.loadPosts(nextProps.tag.slug);
   }
 
-  componentWillUpdate(nextProps, nextState, nextContext) {
-
-  }
-
   loadPosts = async(tagSlug) => {
     try {
-      const posts = await api.posts.browse({filter: `tag:${tagSlug}`, include:'tags'});
+      const posts = await api.posts.browse({filter: `tag:${tagSlug}`, include:'tags,authors'});
       delete posts['meta'];
       this.setState({posts});
     } catch(e) {

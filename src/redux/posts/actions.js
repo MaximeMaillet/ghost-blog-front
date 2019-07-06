@@ -38,7 +38,7 @@ const loadFromSlug = (slug) => {
     try {
       dispatch(startLoading());
 
-      const response = await api.posts.read({slug, include:'tags,authors'});
+      const response = await api.posts.read({slug, include:'authors'});
       dispatch(loadingSuccess({post: response}));
     } catch(e) {
       dispatch(loadingFailed(e));
