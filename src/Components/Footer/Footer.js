@@ -11,6 +11,7 @@ class Footer extends Component {
     this.state = {
       tags: [],
       posts: [],
+      pages: [],
     };
   }
 
@@ -26,9 +27,13 @@ class Footer extends Component {
       const posts = await api.posts.browse({limit: 5});
       delete posts['meta'];
 
+      const pages = await api.pages.browse({limit: 5});
+      delete pages['meta'];
+
       this.setState({
         tags,
         posts,
+        pages,
       })
     } catch(e) {
 
@@ -62,6 +67,16 @@ class Footer extends Component {
                   })}
                 </div>
               </div>
+              {this.state.pages.length > 0 &&
+                <div className="part novel">
+                  <h4>Romans</h4>
+                  <div className="d-flex flex-column">
+                    {this.state.pages.map((page, index) => {
+                      return <Link key={index} to={`/romans/${page.slug}`}>{page.title}</Link>;
+                    })}
+                  </div>
+                </div>
+              }
             </div>
           </div>
         </div>

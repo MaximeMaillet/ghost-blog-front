@@ -31,7 +31,7 @@ export class Post extends Component {
           <Authors className="authors" authors={this.props.authors} />
         </div>
         <h1 className="title">{this.props.title}</h1>
-        <div className="body" dangerouslySetInnerHTML={{__html: this.props.html}} />
+        <div className="body post-content" dangerouslySetInnerHTML={{__html: this.props.html}} />
       </article>
     );
   }

@@ -6,6 +6,7 @@ import './App.scss';
 import Home from './Routes/Home';
 import Post from './Routes/Post';
 import Story from './Routes/Story';
+import Novel from './Routes/Novel'
 
 export class App extends Component {
   render() {
@@ -14,6 +15,7 @@ export class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/histoires/:slug" component={Post} />
         <Route exact path="/recueils/:slug" component={Story} />
+        <Route exact path="/romans/:slug" component={Novel} />
       </Switch>
     );
   }

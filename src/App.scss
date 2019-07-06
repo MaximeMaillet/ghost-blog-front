@@ -43,3 +43,30 @@ body, html {
 .resp-overlap-top-30 { @include resp-overlap-top(-30vh); }
 .resp-overlap-top-40 { @include resp-overlap-top(-40vh); }
 .resp-overlap-top-50 { @include resp-overlap-top(-50vh); }
+
+.post-content {
+  text-align: justify;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.3em;
+
+  ul {
+    list-style-type: none;
+
+    li:before {
+      content: '\2013';
+      margin-right: 1em;
+    }
+  }
+
+  hr {
+    margin: 1em 0 2em 0;
+    border: none;
+    font-weight: bold;
+
+    &:before {
+      display: block;
+      content: '* * *';
+      text-align: center;
+    }
+  }
+}
