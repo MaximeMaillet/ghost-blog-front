@@ -86,6 +86,19 @@ article.post {
         margin-right: 1em;
       }
     }
+    
+    hr {
+      //display: none;
+      margin: 1em 0 2em 0;
+      border: none;
+      font-weight: bold;
+
+      &:before {
+        display: block;
+        content: '* * *';
+        text-align: center;
+      }
+    }
   }
 }
 
