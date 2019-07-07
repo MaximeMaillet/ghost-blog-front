@@ -1,4 +1,5 @@
 import api from '../../libraries/api';
+import {readingTime} from '@tryghost/helpers'
 
 export const TYPE = {
   START_LOADING: 'Posts/start_loading',
@@ -33,13 +34,22 @@ const loadingSuccess = (data) => {
   }
 };
 
+const getReadingTime = (post) => {
+  return readingTime(post, {minute: '1 minute', minutes: '% minutes'});
+};
+
 const loadFromSlug = (slug) => {
   return async (dispatch) => {
     try {
       dispatch(startLoading());
 
       const response = await api.posts.read({slug, include:'authors'});
-      dispatch(loadingSuccess({post: response}));
+      dispatch(loadingSuccess({
+        post: {
+          ...response,
+          readingTime: getReadingTime(response),
+        }
+      }));
     } catch(e) {
       dispatch(loadingFailed(e));
     } finally {
@@ -56,8 +66,14 @@ const load = (filter) => {
       const response = await api.posts.browse({include: 'tags,authors'});
       const pagination = response['meta']['pagination'];
       delete response['meta'];
+      const posts = response.map((post) => {
+        return {
+          ...post,
+          readingTime: getReadingTime(post),
+        };
+      });
       dispatch(loadingSuccess({
-        posts: response,
+        posts,
         pagination,
       }));
     } catch(e) {

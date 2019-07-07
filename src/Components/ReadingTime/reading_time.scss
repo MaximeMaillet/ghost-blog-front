@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+
+div.reading-time {
+  background-color: $primary;
+  border-radius: 5px;
+  color: $white;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+
+  .reading-time-text {
+    margin-left: 1em;
+  }
+}

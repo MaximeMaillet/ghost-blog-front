@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Authors from "../Authors/Authors";
-
 import './posts.scss'
 import Date from "../Date/Date";
+import ReadingTime from "../ReadingTime/ReadingTime";
 
 export class Post extends Component {
 
@@ -27,8 +27,13 @@ export class Post extends Component {
     return (
       <article className={`post ${this.props.className}`}>
         <div className="header">
-          <div className="date"><Date date={this.props.published_at} /></div>
-          <Authors className="authors" authors={this.props.authors} />
+          <div className="left">
+            <ReadingTime readingTime={this.props.readingTime} />
+          </div>
+          <div className="right">
+            <div className="date"><Date date={this.props.published_at} /></div>
+            <Authors className="authors" authors={this.props.authors} />
+          </div>
         </div>
         <h1 className="title">{this.props.title}</h1>
         <div className="body post-content" dangerouslySetInnerHTML={{__html: this.props.html}} />

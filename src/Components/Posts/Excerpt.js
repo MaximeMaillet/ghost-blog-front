@@ -5,6 +5,7 @@ import Authors from "../Authors/Authors";
 
 import './posts.scss';
 import Date from "../Date/Date";
+import ReadingTime from "../ReadingTime/ReadingTime";
 
 export default class Excerpt extends Component {
 
@@ -30,20 +31,23 @@ export default class Excerpt extends Component {
             <img src={this.props.feature_image} alt="illustration" />
           </Link>
         </div>
-        <div className="text">
+        <div className="body">
           <div className="date"><Date date={this.props.published_at}/></div>
-          <Link to={`/histoires/${this.props.slug}`}>
-            <h2 className="title">{this.props.title}</h2>
-          </Link>
           <Authors
             className="authors"
             authors={this.props.authors}
           />
           <Link to={`/histoires/${this.props.slug}`}>
-            <div className="excerpt">
+            <h2 className="title">{this.props.title}</h2>
+          </Link>
+          <Link to={`/histoires/${this.props.slug}`}>
+            <div className="excerpt post-content">
               {this.props.custom_excerpt}
             </div>
           </Link>
+          <div className="footer">
+            <ReadingTime readingTime={this.props.readingTime} />
+          </div>
         </div>
       </article>
     );

@@ -18,18 +18,20 @@ article.post-excerpt {
     }
   }
 
-  .text {
+  .body {
     margin: 1em 1em 0 1em;
-    font-family: 'Crimson Text', serif;
+    padding: 1em;
+    width: 100%;
 
     .date {
       color: $grey;
-      font-size: 0.7rem;
+      font-size: 0.9rem;
       text-align: right;
     }
 
     .authors {
       text-align: right;
+      font-size: 0.9em;
     }
 
     a {
@@ -40,9 +42,14 @@ article.post-excerpt {
       }
 
       .excerpt {
-        margin-top: 1em;
         color: $black;
+        text-align: justify;
       }
+    }
+
+    .footer {
+      float: right;
+      font-size: 0.8em;
     }
   }
 }
@@ -59,11 +66,20 @@ article.post {
 
   .header {
     display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    text-align: right;
-    font-size: 0.7em;
-    color: $grey;
+    flex-direction: row;
+
+    .left {
+      font-size: 0.8em;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      text-align: right;
+      font-size: 0.7em;
+      color: $grey;
+    }
   }
 
   h1.title {
