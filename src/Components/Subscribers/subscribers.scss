@@ -1,0 +1,17 @@
+div.form-subscribers {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+
+    button {
+      margin-left: 1em;
+    }
+  }
+}

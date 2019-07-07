@@ -3,7 +3,7 @@ import TopHeader from "../Components/Headers/TopHeader/TopHeader";
 import BackgroundImage from "../Components/BackgroundImage/BackgroundImage";
 import Footer from "../Components/Footer/Footer";
 import withTag from "../Hoc/withTag";
-import api from '../libraries/api';
+import {apiContent} from '../libraries/api';
 import List from "../Components/Posts/List";
 
 export class Story extends Component {
@@ -26,7 +26,7 @@ export class Story extends Component {
 
   loadPosts = async(tagSlug) => {
     try {
-      const posts = await api.posts.browse({filter: `tag:${tagSlug}`, include:'tags,authors'});
+      const posts = await apiContent.posts.browse({filter: `tag:${tagSlug}`, include:'tags,authors'});
       delete posts['meta'];
       this.setState({posts});
     } catch(e) {

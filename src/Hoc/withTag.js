@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../libraries/api';
+import {apiContent} from '../libraries/api';
 import {withRouter} from "react-router-dom";
 
 export default function withTag(BaseComponent) {
@@ -21,7 +21,7 @@ export default function withTag(BaseComponent) {
 
     loadTags = async(slug) => {
       try {
-          const tag = await api.tags.read({slug});
+          const tag = await apiContent.tags.read({slug});
           delete tag['meta'];
           this.setState({tag});
       } catch(e) {

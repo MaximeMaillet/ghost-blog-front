@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import api from '../../libraries/api';
+import {apiContent} from '../../libraries/api';
 
 import './footer.scss';
 import {Link} from "react-router-dom";
 import withSettings from "../../Hoc/withSettings";
+import Subscribers from "../Subscribers/Subscribers";
 
 class Footer extends Component {
   constructor(props) {
@@ -16,18 +17,18 @@ class Footer extends Component {
   }
 
   componentDidMount() {
-    this.load()
+    this.load();
   }
 
   load = async() => {
     try {
-      const tags = await api.tags.browse();
+      const tags = await apiContent.tags.browse();
       delete tags['meta'];
 
-      const posts = await api.posts.browse({limit: 5});
+      const posts = await apiContent.posts.browse({limit: 5});
       delete posts['meta'];
 
-      const pages = await api.pages.browse({limit: 5});
+      const pages = await apiContent.pages.browse({limit: 5});
       delete pages['meta'];
 
       this.setState({
@@ -46,9 +47,15 @@ class Footer extends Component {
         backgroundImage: `url('${this.props.image}')`,
       }}>
         <div className="text">
+          <div className="subscribers-mobile container">
+            <Subscribers />
+          </div>
           <div className="container d-flex flex-row">
             <div className="about">
               {this.props.ghost_foot}
+            </div>
+            <div className="subscribers">
+              <Subscribers />
             </div>
             <div className="links d-flex flex-row ml-auto">
               <div className="part posts">

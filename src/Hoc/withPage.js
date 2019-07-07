@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../libraries/api';
+import {apiContent} from '../libraries/api';
 import {withRouter} from "react-router-dom";
 
 export default function withPage(BaseComponent) {
@@ -29,7 +29,7 @@ export default function withPage(BaseComponent) {
 
     loadPage = async(slug) => {
       try {
-        const page = await api.pages.read({slug, include:'authors'});
+        const page = await apiContent.pages.read({slug, include:'authors'});
         delete page['meta'];
         page.html = this.formatHtml(page.html);
         this.setState({page});

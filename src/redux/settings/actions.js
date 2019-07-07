@@ -1,4 +1,4 @@
-import api from '../../libraries/api';
+import {apiContent} from '../../libraries/api';
 
 export const TYPE = {
   START_LOADING: 'Settings/start_loading',
@@ -37,7 +37,7 @@ const load = () => {
   return async (dispatch) => {
     try {
       dispatch(startLoading());
-      const response = await api.settings.browse();
+      const response = await apiContent.settings.browse();
       dispatch(loadingSuccess(response));
     } catch(e) {
       dispatch(loadingFailed(e));

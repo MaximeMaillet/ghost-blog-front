@@ -1,4 +1,4 @@
-import api from '../../libraries/api';
+import {apiContent} from '../../libraries/api';
 import {readingTime} from '@tryghost/helpers'
 
 export const TYPE = {
@@ -43,7 +43,7 @@ const loadFromSlug = (slug) => {
     try {
       dispatch(startLoading());
 
-      const response = await api.posts.read({slug, include:'authors'});
+      const response = await apiContent.posts.read({slug, include:'authors'});
       dispatch(loadingSuccess({
         post: {
           ...response,
@@ -63,7 +63,7 @@ const load = (filter) => {
     try {
       dispatch(startLoading());
 
-      const response = await api.posts.browse({include: 'tags,authors'});
+      const response = await apiContent.posts.browse({include: 'tags,authors'});
       const pagination = response['meta']['pagination'];
       delete response['meta'];
       const posts = response.map((post) => {
