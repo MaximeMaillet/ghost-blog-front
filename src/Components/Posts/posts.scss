@@ -1,4 +1,6 @@
 @import "../../styles/colors";
+@import "~bootstrap/scss/mixins/_breakpoints.scss";
+@import "~bootstrap/scss/bootstrap-grid.scss";
 
 article.post-excerpt {
   display: flex;
@@ -91,6 +93,20 @@ article.post {
 
   .body {
     padding:0 2em;
+    font-size: 1.5em;
+    padding: 0 0.5em;
+
+    ul {
+      padding-left: 0.5em;
+
+      li::before {
+        margin-right: 0.5em;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding:0 2em;
+    }
   }
 }
 
