@@ -1,25 +1,59 @@
 version: '3.1'
 
-services:
+networks:
+  ghost:
+    external:
+      name: ghost
 
+services:
   ghost:
     image: ghost:2-alpine
     restart: always
+    networks:
+      - ghost
     ports:
-      - 3001:2368
+      - ${GHOST_PORT}:2368
     volumes:
-      - .data/ghost:/var/lib/ghost/content
+      - ${STORAGE_PATH}/ghost:/var/lib/ghost/content
     environment:
       database__client: mysql
       database__connection__host: db
       database__connection__user: root
-      database__connection__password: example
-      database__connection__database: ghost
+      database__connection__password: ${DATABASE_ROOT_PASSWORD}
+      database__connection__database: ${DATABASE_NAME}
+
+  talk:
+    image: coralproject/talk
+    restart: always
+    networks:
+      - ghost
+    ports:
+      - "${TALK_PORT}:5000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/coral
+      - REDIS_URI=redis://redis:6379
+      - SIGNING_SECRET=replace
 
   db:
     image: mysql:5.7
     restart: always
+    networks:
+      - ghost
     volumes:
-      - .data/database:/var/lib/mysql
+      - ${STORAGE_PATH}/database:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+
+  mongo:
+    image: mongo:4.2
+    networks:
+      - ghost
+    volumes:
+      - ${STORAGE_PATH}/mongo:/data/db
+
+  redis:
+    image: redis:3.2
+    networks:
+      - ghost
+    volumes:
+      - ${STORAGE_PATH}/redis:/data
