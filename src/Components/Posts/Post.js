@@ -26,17 +26,19 @@ export class Post extends Component {
   render() {
     return (
       <article className={`post ${this.props.className}`}>
-        <div className="header">
-          <div className="left">
-            <ReadingTime readingTime={this.props.readingTime} />
+        <div className="post-header">
+          <div className="post-data">
+            <div className="post-reading-time">
+              <ReadingTime readingTime={this.props.readingTime} />
+            </div>
+            <div className="post-date">
+              <div className="date"><Date date={this.props.published_at} /></div>
+              <Authors className="authors" authors={this.props.authors} />
+            </div>
           </div>
-          <div className="right">
-            <div className="date"><Date date={this.props.published_at} /></div>
-            <Authors className="authors" authors={this.props.authors} />
-          </div>
+          <h1 className="post-title">{this.props.title}</h1>
         </div>
-        <h1 className="title">{this.props.title}</h1>
-        <div className="body post-content" dangerouslySetInnerHTML={{__html: this.props.html}} />
+        <div className="post-body post-content" dangerouslySetInnerHTML={{__html: this.props.html}} />
       </article>
     );
   }

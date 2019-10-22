@@ -4,24 +4,81 @@ div.background-image {
   height: 65vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: $break-white;
   -webkit-box-shadow: -1px 9px 14px -1px rgba(0,0,0,0.38);
   -moz-box-shadow: -1px 9px 14px -1px rgba(0,0,0,0.38);
   box-shadow: -1px 9px 14px -1px rgba(0,0,0,0.38);
   font-family: 'DM Serif Text', serif;
 
-  .titles {
-    margin-top: -10vh;
-    background-color: rgba(0,0,0,0.7);
-    padding: 1rem;
-    text-align: center;
-    border-radius: 5px;
+  .home-splash {
+    padding-top: 0vh;
 
-    h1 {
-      color: $break-white;
+    .logo {
+      align-self: center;
+      img {
+        max-height: 10vh;
+      }
     }
 
-    h3 {
-      color: $break-white;
+    .titles {
+      margin-left: auto;
+      align-self: center;
+
+      h1, h3 {
+        text-align: right;
+        color: $purple;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+        text-decoration: underline;
+      }
+    }
+
+    @media (min-width: 576px) {
+      padding-top: 2vh;
+      background: none;
+      .logo {
+        align-self: flex-end;
+        img {
+          max-height: 12vh;
+        }
+      }
+      .titles {
+        align-self: flex-start;
+        h3 {
+          font-size: 1.5rem;
+        }
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  
+    @media (min-width: 768px) {
+      padding-top: 4vh;
+      .logo {
+        img {
+          max-height: 15vh;
+        }
+      }
+      .titles {
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+    }
+  
+    @media (min-width: 992px) {
+      padding-top: 6vh;
+    }
+      
+    @media (min-width: 1200px) {
+      padding-top: 10vh;
     }
   }
 }

@@ -23,7 +23,7 @@ export class Post extends Component {
           splash={this.props.feature_image}
         />
         <div className="container">
-          <OnePost {...this.props} className="resp-overlap-top-40" />
+          <OnePost {...this.props} className="overlap-top" />
         </div>
         <Footer
           image={this.props.feature_image}

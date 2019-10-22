@@ -16,15 +16,16 @@ export class Home extends Component {
 
   render() {
     return (
-      <div className="container-fluid p-0 container-home">
+      <div className="container-home">
         <BackgroundImage
           splash={this.props.cover_image}
           description={this.props.description}
           title={this.props.title}
+          logo={this.props.logo}
+          showLogo={true}
         />
-        <div className="container">
+        <div className="container overlap-top">
           <List
-            className="overlap-top-20"
             posts={this.props.posts}
             pagination={this.props.pagination}
           />

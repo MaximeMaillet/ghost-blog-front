@@ -14,6 +14,8 @@ class TopHeader extends Component {
   };
 
   static defaultProps = {
+    title: 'DeuxMax',
+    description: 'Histoires et compte de faits.'
   };
 
   render() {
@@ -22,10 +24,15 @@ class TopHeader extends Component {
         <Link to="/" className="logo">
           <img src={this.props.logo} alt={this.props.title} />
         </Link>
-        <div className="titles d-flex flex-column align-items-start">
-          <h2>{this.props.title}</h2>
-          <h3>{this.props.description}</h3>
-        </div>
+        <nav className="m-auto self-align-center">
+          <Link to="/">
+            Accueil
+          </Link>
+          /
+          <Link to="/about">
+            À propos
+          </Link>
+        </nav>
       </header>
     );
   }

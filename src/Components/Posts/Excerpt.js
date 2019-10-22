@@ -27,24 +27,28 @@ export default class Excerpt extends Component {
     return (
       <article className="post-excerpt">
         <div className="image">
-          <Link to={`/histoires/${this.props.slug}`}>
-            <img src={this.props.feature_image} alt="illustration" />
-          </Link>
+          <Link to={`/histoires/${this.props.slug}`} style={{
+            backgroundImage: `url('${this.props.feature_image}')`,
+          }}></Link>
         </div>
-        <div className="body">
+        <div className="text">
+          <div className="credits">
           <div className="date"><Date date={this.props.published_at}/></div>
-          <Authors
-            className="authors"
-            authors={this.props.authors}
-          />
-          <Link to={`/histoires/${this.props.slug}`}>
-            <h2 className="title">{this.props.title}</h2>
-          </Link>
-          <Link to={`/histoires/${this.props.slug}`}>
-            <div className="excerpt post-content">
-              {this.props.custom_excerpt}
-            </div>
-          </Link>
+            <Authors
+              className="authors"
+              authors={this.props.authors}
+            />
+          </div>
+          <div className="body">
+            <Link to={`/histoires/${this.props.slug}`}>
+              <h2 className="title">{this.props.title}</h2>
+            </Link>
+            <Link to={`/histoires/${this.props.slug}`}>
+              <div className="excerpt post-content">
+                {this.props.custom_excerpt}
+              </div>
+            </Link>
+          </div>
           <div className="footer">
             <ReadingTime readingTime={this.props.readingTime} />
           </div>

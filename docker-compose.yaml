@@ -16,6 +16,7 @@ services:
     volumes:
       - ${STORAGE_PATH}/ghost:/var/lib/ghost/content
     environment:
+      url: http://localhost:3001
       database__client: mysql
       database__connection__host: db
       database__connection__user: root
