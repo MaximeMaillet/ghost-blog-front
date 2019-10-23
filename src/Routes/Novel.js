@@ -13,10 +13,11 @@ export class Novel extends Component {
         <TopHeader />
         <BackgroundImage
           title={page.title}
+          description="Roman"
           splash={page.feature_image}
         />
         <div className="container">
-          <OnePage className="resp-overlap-top-20" page={page} />
+          <OnePage className="overlap-top" page={page} />
         </div>
         <Footer
           image={page.feature_image}

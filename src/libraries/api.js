@@ -12,3 +12,7 @@ export const apiAdmin = new GhostAdminAPI({
   key: process.env.REACT_APP_API_ADMIN_KEY,
   version: 'v2'
 });
+
+export const replaceURL = (url) => {
+  return url.replace(process.env.REACT_APP_URL, process.env.REACT_APP_API_URL);
+}

@@ -58,12 +58,33 @@ const loadFromSlug = (slug) => {
   }
 };
 
-const load = (filter) => {
+const loadFromTag = (slug) => {
   return async (dispatch) => {
     try {
       dispatch(startLoading());
 
-      const response = await apiContent.posts.browse({include: 'tags,authors'});
+      const response = await apiContent.posts.browse({filter: `tag:${slug}`, include:'tags,authors'});
+      dispatch(loadingSuccess({
+        post: {
+          ...response,
+          readingTime: getReadingTime(response),
+        }
+      }));
+    } catch(e) {
+      dispatch(loadingFailed(e));
+    } finally {
+      dispatch(stopLoading());
+    }
+  }
+};
+
+const load = (filter) => {
+  return async (dispatch) => {
+    try {
+      dispatch(startLoading());
+      const filters = {include: 'tags,authors'};
+      Object.assign(filters, filter);
+      const response = await apiContent.posts.browse(filters);
       const pagination = response['meta']['pagination'];
       delete response['meta'];
       const posts = response.map((post) => {
@@ -87,4 +108,5 @@ const load = (filter) => {
 export default {
   load,
   loadFromSlug,
+  loadFromTag,
 }

@@ -1,6 +1,8 @@
 import React from 'react';
+import {connect} from "react-redux";
 import {apiContent} from '../libraries/api';
 import {withRouter} from "react-router-dom";
+import actionsTags from '../redux/tags/actions';
 
 export default function withTag(BaseComponent) {
   class TagsComponent extends React.PureComponent {
@@ -12,31 +14,45 @@ export default function withTag(BaseComponent) {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-      this.loadTags(nextProps.match.params.slug);
+      if(this.props.match.params.slug !== nextProps.match.params.slug) {
+        this.props.loadTags(nextProps.match.params.slug);
+      }
     }
 
     componentDidMount() {
-      this.loadTags(this.props.match.params.slug);
+      this.props.loadTags(this.props.match.params.slug);
     }
 
-    loadTags = async(slug) => {
-      try {
-          const tag = await apiContent.tags.read({slug});
-          delete tag['meta'];
-          this.setState({tag});
-      } catch(e) {
-        console.warn(e);
-      }
-    };
-
     render() {
-      if (!this.state.tag) {
+      const {data, loading, loaded, error} = this.props;
+      // Not ready
+      if (!data) {
         return null;
       }
 
-      return <BaseComponent {...this.props} tag={this.state.tag} />;
+      // Loading
+      if(!loaded && loading) {
+        return null;
+      }
+
+      // No tag exists
+      if(!data.tag || error) {
+        return null;
+      }
+
+      return <BaseComponent {...this.props} tag={data.tag} postFilter={{filter: `tag:${data.tag.slug}`}} />;
     }
   }
 
-  return withRouter(TagsComponent);
+  return withRouter(connect(
+    (state) => ({
+      loading: state.tags.loading,
+      loaded: state.tags.loaded,
+      data: state.tags.data,
+      error: state.tags.error,
+    }),
+    (dispatch) => ({
+      loadTags: (slug) => dispatch(actionsTags.loadFromSlug(slug)),
+    })
+  )(TagsComponent));
 }

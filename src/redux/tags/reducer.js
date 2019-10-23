@@ -26,13 +26,13 @@ export default function(state = initialState, actions) {
     case TYPE.SUCCESS_LOADING:
       const watchField = ['feature_image'];
       if(actions.data) {
-        if(actions.data.post) {
-          actions.data.post.feature_image = replaceURL(actions.data.post.feature_image);
+        if(actions.data.tag) {
+          actions.data.tag.feature_image = replaceURL(actions.data.tag.feature_image);
         }
-        if(actions.data.posts) {
-          actions.data.posts.forEach((post) => {
-            post.feature_image = replaceURL(post.feature_image)
-            return post;
+        if(actions.data.tags) {
+          actions.data.tags.forEach((tag) => {
+            tag.feature_image = replaceURL(tag.feature_image)
+            return tag;
           });
         }
       }

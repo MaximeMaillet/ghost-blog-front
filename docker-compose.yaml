@@ -6,6 +6,13 @@ networks:
       name: ghost
 
 services:
+  ghost-front:
+    image: test:test
+    ports:
+      - 3000:80
+    networks:
+      - ghost
+
   ghost:
     image: ghost:2-alpine
     restart: always
@@ -16,7 +23,8 @@ services:
     volumes:
       - ${STORAGE_PATH}/ghost:/var/lib/ghost/content
     environment:
-      url: http://localhost:3001
+      url: ${APP_URL}
+      admin__url: http://blog.deuxmax.fr
       database__client: mysql
       database__connection__host: db
       database__connection__user: root

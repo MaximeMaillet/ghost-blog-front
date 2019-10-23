@@ -44,6 +44,11 @@ class Subscribers extends Component {
             {this.state.api.error}
           </small> : ''
         }
+        {this.state.api && this.state.api.success ?
+          <small id="newsletterEmail" className="text-success">
+            E-mail correctement enregistré
+          </small> : ''
+        }
       </div>
     );
   }

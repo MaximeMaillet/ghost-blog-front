@@ -1,4 +1,5 @@
 import {TYPE} from "./actions";
+import {replaceURL} from '../../libraries/api';
 
 const initialState = {
   loading: false,
@@ -23,6 +24,14 @@ export default function(state = initialState, actions) {
         error: actions.error,
       };
     case TYPE.SUCCESS_LOADING:
+      if(actions.data) {
+        const watchField = ['cover_image', 'logo'];
+        Object.keys(actions.data).map((setting, index) => {
+          if(watchField.indexOf(setting) !== -1) {
+            actions.data[setting] = replaceURL(actions.data[setting]);
+          }
+        });
+      }
       return {
         ...state,
         loaded: true,

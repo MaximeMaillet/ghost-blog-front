@@ -7,7 +7,7 @@ export default function withPosts(BaseComponent) {
   class PostsComponent extends React.PureComponent {
     componentDidMount() {
       if(!this.props.data.posts) {
-        this.props.loadPosts({});
+        this.props.loadPosts(this.props.postFilter ? this.props.postFilter : {});
       }
     }
 
