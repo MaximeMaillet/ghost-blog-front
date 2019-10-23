@@ -12,7 +12,7 @@ export default function withSettings(BaseComponent) {
 
     componentWillReceiveProps(nextProps, nextContext) {
       if(!nextProps.data) {
-        this.props.load();
+        // this.props.load();
       }
     }
 
