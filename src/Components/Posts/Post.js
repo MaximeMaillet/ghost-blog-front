@@ -27,6 +27,7 @@ export class Post extends Component {
     return (
       <article className={`post ${this.props.className}`}>
         <div className="post-header">
+          <h1 className="post-title">{this.props.title}</h1>
           <div className="post-data">
             <div className="post-reading-time">
               <ReadingTime readingTime={this.props.readingTime} />
@@ -36,7 +37,6 @@ export class Post extends Component {
               <Authors className="authors" authors={this.props.authors} />
             </div>
           </div>
-          <h1 className="post-title">{this.props.title}</h1>
         </div>
         <div className="post-body post-content" dangerouslySetInnerHTML={{__html: this.props.html}} />
       </article>

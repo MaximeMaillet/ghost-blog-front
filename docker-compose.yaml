@@ -20,15 +20,17 @@ services:
     networks:
       - ghost
 
-  ghost-front:
-    image: deuxmax/ghost-front-react:latest
-    ports:
-      - ${GHOST_APP_PORT}:80
-    networks:
-      - ghost
+  # ghost-front:
+  #   image: deuxmax/ghost-front-react:latest
+  #   container_name: ghost-front
+  #   ports:
+  #     - ${GHOST_APP_PORT}:80
+  #   networks:
+  #     - ghost
 
   ghost:
     image: ghost:2-alpine
+    container_name: ghost-back
     restart: always
     networks:
       - ghost
@@ -47,6 +49,7 @@ services:
 
   talk:
     image: coralproject/talk
+    container_name: ghost-talk
     restart: always
     networks:
       - ghost
@@ -55,7 +58,8 @@ services:
     environment:
       - MONGODB_URI=mongodb://mongo:27017/coral
       - REDIS_URI=redis://redis:6379
-      - SIGNING_SECRET=replace
+      - SIGNING_SECRET=${TALK_SECRET}
+      - TALK_ROOT_URL=${TALK_ROOT_URL}
 
   db:
     image: mysql:5.7
@@ -69,6 +73,7 @@ services:
 
   mongo:
     image: mongo:4.2
+    container_name: ghost-talk-mongo
     networks:
       - ghost
     volumes:
@@ -76,6 +81,7 @@ services:
 
   redis:
     image: redis:3.2
+    container_name: ghost-tal-redis
     networks:
       - ghost
     volumes:
@@ -83,6 +89,7 @@ services:
 
   prerender:
     image: deuxmax/docker-prerender:latest
+    container_name: ghost-prerender
     restart: always
     networks: 
       - ghost

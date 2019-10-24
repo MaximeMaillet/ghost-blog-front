@@ -25,15 +25,15 @@ export default class Excerpt extends Component {
 
   render() {
     return (
-      <article className="post-excerpt">
-        <div className="image">
+      <article className="post-excerpt row row-eq-height">
+        <div className="image col-12 col-sm-12 col-md-4 col-lg-4">
           <Link to={`/histoires/${this.props.slug}`} style={{
             backgroundImage: `url('${this.props.feature_image}')`,
           }}></Link>
         </div>
-        <div className="text">
+        <div className="text col-12 col-sm-12 col-md-8 col-lg-8">
           <div className="credits">
-          <div className="date"><Date date={this.props.published_at}/></div>
+            <div className="date"><Date date={this.props.published_at}/></div>
             <Authors
               className="authors"
               authors={this.props.authors}

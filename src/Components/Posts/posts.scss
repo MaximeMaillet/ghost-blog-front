@@ -9,8 +9,6 @@ div.post-list {
 }
 
 article.post-excerpt {
-  display: flex;
-  flex-direction: column;
   background-color: $break-white;
   border-radius: 5px;
   box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
@@ -19,6 +17,7 @@ article.post-excerpt {
     height: 25vh;
     background-color: $green;
     border-radius: 5px 5px 0 0;
+    padding: 0;
 
     a {
       display: block;
@@ -37,8 +36,8 @@ article.post-excerpt {
     .credits {
       display: flex;
       flex-direction: row;
-      padding: 1em;
-      margin-top: -3vh;
+      padding: 3vh;
+      margin: -6vh -15px 0 -15px;
       height: 3vh;
       font-size: 0.8em;
       align-items: center;
@@ -55,22 +54,30 @@ article.post-excerpt {
       h2 {
         white-space: nowrap;
         text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
         max-width: 100%;
         overflow: hidden;
+        font-size: 2em;
+        border-bottom: 1px solid $primary;
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
+        text-align: center;
       }
   
       .excerpt {
         font-size: 1.5em;
         word-spacing: 0rem;
+        padding: 0;
       }
     }
   
     .footer {
       padding: 1em;
       margin-top: auto;
+      overflow: hidden;
   
       div.reading-time {
-        width: 25vh;
+        max-width: 50%;
         margin-left: auto;
       }
     }
@@ -100,12 +107,6 @@ article.post {
       display: flex;
       flex-direction: row;
 
-      .post-reading-time {
-        .reading-time {
-          height: 5vh;
-        }
-      }
-
       .post-date {
         margin-left: auto;
         color: $grey;
@@ -127,34 +128,10 @@ article.post {
   }
 }
 
-@media (min-width: 576px) {
-  article.post-excerpt {
-    .image {
-      height: 35vh;
-    }
-
-    .text {
-      .credits {
-        font-size: 1em;
-      }
-    }
-  }
-
-  article.post {
-    div.post-header {
-      margin-top: -20vh;
-    }
-  }
-}
-
 @media (min-width: 768px) {
   article.post-excerpt {
-    flex-direction: row;
-    height: 35vh;
-
     .image {
-      flex: 1;
-      height: 100%;
+      height: auto;
       border-radius: 5px 0 0 5px;
 
       a {
@@ -163,20 +140,11 @@ article.post {
     }
 
     .text {
-      flex: 2;
-
       .credits {
         margin-top: 0;
         background: none;
         color: $grey;
-        padding: 1em;
       }
-    }
-  }
-
-  article.post {
-    div.post-header {
-      margin-top: -25vh;
     }
   }
 }
@@ -185,20 +153,35 @@ article.post {
   article.post-excerpt {
     &:nth-child(2n) {
       flex-direction: row-reverse;
-    }
-  }
+      .image {
+        height: auto;
+        border-radius: 0 5px 5px 0;
 
-  article.post {
-    div.post-header {
-      min-height: 30vh;
-      margin-top: -30vh;
+        a {
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+
+    .text {
+      .body {
+        h2 {
+          text-align: left;
+        }
+      }
+
+      .footer {
+        div.reading-time {
+          max-width: 30%;
+        }
+      }
     }
   }
 }
   
 @media (min-width: 1200px) {
   article.post-excerpt {
-    height: 40vh;
+    min-height: 50vh;
   }
 }
 
