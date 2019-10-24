@@ -68,10 +68,6 @@ body, html {
   }
 }
 
-@mixin overlap-top($value) {
-  margin-top: $value !important;
-}
-
 @mixin resp-overlap-top($value) {
   margin-top: $value !important;
 
@@ -92,17 +88,31 @@ body, html {
   }
 }
 
-.overlap-top-10 { @include overlap-top(-10vh); }
-.overlap-top-20 { @include overlap-top(-20vh); }
-.overlap-top-30 { @include overlap-top(-30vh); }
-.overlap-top-40 { @include overlap-top(-40vh); }
-.overlap-top-50 { @include overlap-top(-50vh); }
+.overlap-top-40 { @include resp-overlap-top(-40vh); }
 
-.resp-overlap-top-10 { @include resp-overlap-top(-10vh); }
-.resp-overlap-top-20 { @include resp-overlap-top(-20vh); }
-.resp-overlap-top-30 { @include resp-overlap-top(-30vh); }
-.resp-overlap-top-40 { @include resp-overlap-top(-40vh); }
-.resp-overlap-top-50 { @include resp-overlap-top(-50vh); }
+.container-notfound {
+  background-color: $break-white;
+  min-height: 50vh;
+  border-radius: 5px;
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+  
+  .quote {
+    width: 50%;
+    font-style: italic;
+    margin: 1em auto 0 auto;
+    font-size: 1.5em;
+
+    .author {
+      text-align: right;
+      font-style: normal;
+      font-weight: 900;
+    }
+  }
+}
 
 .post-content {
   text-align: justify;

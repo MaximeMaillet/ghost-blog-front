@@ -7,6 +7,7 @@ import Home from './Routes/Home';
 import Post from './Routes/Post';
 import Story from './Routes/Story';
 import Novel from './Routes/Novel'
+import NotFound from './Routes/NotFound';
 
 export class App extends Component {
   render() {
@@ -16,6 +17,7 @@ export class App extends Component {
         <Route exact path="/histoires/:slug" component={Post} />
         <Route exact path="/recueils/:slug" component={Story} />
         <Route exact path="/romans/:slug" component={Novel} />
+        <Route component={NotFound} />
       </Switch>
     );
   }
