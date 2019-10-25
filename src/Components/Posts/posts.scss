@@ -128,6 +128,13 @@ article.post {
   }
 }
 
+div.post-loading {
+  background-color: $break-white;
+  border-radius: 5px;
+  min-height: 30vh;
+  margin-top: 10vh;
+}
+
 @media (min-width: 768px) {
   article.post-excerpt {
     .image {

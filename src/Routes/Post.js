@@ -9,7 +9,6 @@ import {Helmet} from "react-helmet";
 
 export class Post extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="container-fluid p-0 container-post">
         <Helmet>
