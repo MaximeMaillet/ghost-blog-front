@@ -24,15 +24,25 @@ export default function(state = initialState, actions) {
         error: actions.error,
       };
     case TYPE.SUCCESS_LOADING:
-      const watchField = ['feature_image'];
+      const watchField = ['feature_image', 'twitter_image'];
       if(actions.data) {
         if(actions.data.post) {
-          actions.data.post.feature_image = replaceURL(actions.data.post.feature_image);
+          Object.keys(actions.data.post).map((post) => {
+            if(watchField.indexOf(post) !== -1) {
+              actions.data.post[post] = replaceURL(actions.data.post[post]);
+            }
+            return post;
+          });
         }
         if(actions.data.posts) {
-          actions.data.posts.forEach((post) => {
-            post.feature_image = replaceURL(post.feature_image)
-            return post;
+          actions.data.posts.map((item) => {
+            Object.keys(item).map((post) => {
+              if(watchField.indexOf(post) !== -1) {
+                item[post] = replaceURL(item[post]);
+              }
+              return post;
+            });
+            return item;
           });
         }
       }
