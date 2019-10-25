@@ -20,13 +20,13 @@ services:
     networks:
       - ghost
 
-  # ghost-front:
-  #   image: deuxmax/ghost-front-react:latest
-  #   container_name: ghost-front
-  #   ports:
-  #     - ${GHOST_APP_PORT}:80
-  #   networks:
-  #     - ghost
+  ghost-front:
+    image: deuxmax/ghost-front-react:latest
+    container_name: ghost-front
+    ports:
+      - ${GHOST_APP_PORT}:80
+    networks:
+      - ghost
 
   ghost:
     image: ghost:2-alpine
