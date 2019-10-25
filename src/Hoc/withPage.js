@@ -1,51 +1,71 @@
 import React from 'react';
 import {apiContent} from '../libraries/api';
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import actionsPages from '../redux/pages/actions';
 
 export default function withPage(BaseComponent) {
   class PageComponent extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {
-        page: null,
+        chapter: 0,
+        chaptersNumber: 0,
       };
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
+      if(nextProps.match.params) {
+        if(nextProps.match.params.chapter) {
+          if(nextProps.match.params.chapter !== this.state.chapter) {
+            this.setState({chapter: parseInt(nextProps.match.params.chapter)});
+          }
+        } else {
+          this.setState({chapter: 1});
+        }
+      }
+
+      if(nextProps.data && nextProps.data.chapters && nextProps.data.chapters.length !== this.state.chaptersNumber) {
+        this.setState({chaptersNumber: nextProps.data.chapters.length});
+      }
+
       if (nextProps.match.params.slug !== this.props.match.params.slug) {
-        this.loadPage(nextProps.match.params.slug);
+        this.props.loadFromSlug(this.props.match.params.slug);
       }
     }
 
     componentDidMount() {
-      this.loadPage(this.props.match.params.slug);
+      this.props.loadFromSlug(this.props.match.params.slug);
     }
 
-    formatHtml = (html) => {
-      html = html.replace('<hr>', '</div><div class="chapter post-content">');
-      html = html.replace('* * *', '<hr>');
-      return `<div class="chapter post-content">${html}</div>`
-    };
-
-    loadPage = async(slug) => {
-      try {
-        const page = await apiContent.pages.read({slug, include:'authors'});
-        delete page['meta'];
-        page.html = this.formatHtml(page.html);
-        this.setState({page});
-      } catch(e) {
-        console.warn(e);
-      }
-    };
-
     render() {
-      if (!this.state.page) {
+      const {data, loading, loaded} = this.props;
+      const {chapter, chaptersNumber} = this.state;
+
+      if(loading || !loaded) {
         return null;
       }
 
-      return <BaseComponent {...this.props} page={this.state.page} />;
+      if(chapter === 0 || chapter > data.chapters.length) {
+        return <BaseComponent page={data} chapterNotFound={true} />;
+      }
+
+      return <BaseComponent {...this.props} 
+        page={data}
+        chaptersNumber={chaptersNumber}
+        chapter={chapter} 
+      />;
     }
   }
 
-  return withRouter(PageComponent);
+  return withRouter(connect(
+    (state) => ({
+      loading: state.pages.loading,
+      loaded: state.pages.loaded,
+      data: state.pages.data,
+    }),
+    (dispatch) => ({
+      loadFromSlug: (slug) => dispatch(actionsPages.loadFromSlug(slug)),
+    })
+  )(PageComponent));
 }

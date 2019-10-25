@@ -3,10 +3,10 @@ import './pages.scss'
 
 class OnePage extends Component {
   render() {
-    const {page} = this.props;
+    const {page, chapter} = this.props;
     return (
       <div className={`page ${this.props.className}`}>
-        <div dangerouslySetInnerHTML={{__html: page.html}} />
+        <div dangerouslySetInnerHTML={{__html: page.chapters[chapter]}} />
         {page.featured &&
           <div className="chapter">
             <h1>Chapitre à suivre</h1>

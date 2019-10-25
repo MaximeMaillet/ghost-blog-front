@@ -16,3 +16,14 @@ export const apiAdmin = new GhostAdminAPI({
 export const replaceURL = (url) => {
   return url.replace(process.env.REACT_APP_URL, process.env.REACT_APP_API_URL);
 }
+
+export const fetchAndReplaceUrl = (watchFields, data) => {
+  Object.keys(data).map((item) => {
+    if(watchFields.indexOf(item) !== -1) {
+      data[item] = data[item] ? replaceURL(data[item]) : null;
+    }
+    return item;
+  });
+
+  return data;
+}

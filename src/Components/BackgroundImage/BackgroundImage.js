@@ -33,7 +33,7 @@ export default class BackgroundImage extends Component {
               {this.props.showTitles &&
                 <div className="titles">
                   <h1>{this.props.title}</h1>
-                  <h3 className="description">{this.props.description}</h3>
+                  <h4 className="description">{this.props.description}</h4>
                 </div>
               }
             </div>

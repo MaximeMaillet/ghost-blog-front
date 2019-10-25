@@ -2,29 +2,29 @@
 
 div.page {
 
-  div.chapter {
-    display: flex;
-    flex-direction: column;
-    min-height: 70vh;
-    padding: 1em;
-    margin: 1em 0;
-    background-color: $white;
-    border-radius: 5px;
-    box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
-    color: $black;
+  // div.chapter {
+  //   display: flex;
+  //   flex-direction: column;
+  //   min-height: 70vh;
+  //   padding: 1em;
+  //   margin: 1em 0;
+  //   background-color: $white;
+  //   border-radius: 5px;
+  //   box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+  //   color: $black;
 
-    h1, h3 {
-      text-align: center;
-    }
+  //   h1, h3 {
+  //     text-align: center;
+  //   }
 
-    h1 {
-      font-size: 2em;
-    }
+  //   h1 {
+  //     font-size: 2em;
+  //   }
 
-    h3 {
-      font-size: 0.8em;
-      color: $grey;
-    }
-  }
+  //   h3 {
+  //     font-size: 0.8em;
+  //     color: $grey;
+  //   }
+  // }
 
 }

@@ -16,7 +16,8 @@ export class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/histoires/:slug" component={Post} />
         <Route exact path="/recueils/:slug" component={Story} />
-        <Route exact path="/romans/:slug" component={Novel} />
+        <Route name="novel" exact path="/romans/:slug" component={Novel} />
+        <Route name="novel-chapter" exact path="/romans/:slug/chapitre-:chapter" component={Novel} />
         <Route component={NotFound} />
       </Switch>
     );
