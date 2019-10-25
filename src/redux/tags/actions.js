@@ -1,5 +1,4 @@
 import {apiContent} from '../../libraries/api';
-import {readingTime} from '@tryghost/helpers'
 
 export const TYPE = {
   START_LOADING: 'Tags/start_loading',

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Excerpt from "./Excerpt";
 
 import './posts.scss';
-import withPosts from "../../Hoc/withPosts";
 
 class List extends Component {
 

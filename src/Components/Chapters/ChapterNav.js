@@ -60,7 +60,7 @@ class ChapterNav extends Component {
     return (
       <nav className={`chapter-nav ${this.props.className}`}>
         <div className="links d-flex">
-          <Link className={`btn ${current == 1 ? 'disabled': ''}`} to={this.getPrev()}>Précédent</Link>
+          <Link className={`btn ${current === 1 ? 'disabled': ''}`} to={this.getPrev()}>Précédent</Link>
           <div className="chapter-title">
             Chapitre :&nbsp;
             {this.chapters.map((item, index) => {
@@ -75,7 +75,7 @@ class ChapterNav extends Component {
                 return <div className="chap-number" key={index}>...</div>;
             })}
             </div>
-          <Link className={`btn ml-auto ${current == total ? 'disabled': ''}`} to={this.getNext()}>Suivant</Link>
+          <Link className={`btn ml-auto ${current === total ? 'disabled': ''}`} to={this.getNext()}>Suivant</Link>
         </div>
       </nav>
     );
