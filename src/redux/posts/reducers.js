@@ -6,6 +6,18 @@ const initialState = {
   data: {},
 };
 
+const watchField = ['feature_image', 'twitter_image'];
+function fetchAndReplace(posts) {
+  Object.keys(posts).map((post) => {
+    if(watchField.indexOf(post) !== -1) {
+      posts[post] = posts[post] ? replaceURL(posts[post]) : posts[post];
+    }
+    return post;
+  });
+
+  return posts;
+}
+
 export default function(state = initialState, actions) {
   switch(actions.type) {
     case TYPE.START_LOADING:
@@ -24,25 +36,13 @@ export default function(state = initialState, actions) {
         error: actions.error,
       };
     case TYPE.SUCCESS_LOADING:
-      const watchField = ['feature_image', 'twitter_image'];
       if(actions.data) {
         if(actions.data.post) {
-          Object.keys(actions.data.post).map((post) => {
-            if(watchField.indexOf(post) !== -1) {
-              actions.data.post[post] = replaceURL(actions.data.post[post]);
-            }
-            return post;
-          });
+          actions.data.post = fetchAndReplace(actions.data.post);
         }
         if(actions.data.posts) {
           actions.data.posts.map((item) => {
-            Object.keys(item).map((post) => {
-              if(watchField.indexOf(post) !== -1) {
-                item[post] = replaceURL(item[post]);
-              }
-              return post;
-            });
-            return item;
+            return fetchAndReplace(item);
           });
         }
       }
