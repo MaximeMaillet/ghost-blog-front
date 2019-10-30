@@ -20,3 +20,13 @@ export const fetchAndReplaceUrl = (watchFields, data) => {
         .replace(/<hr>/gi, '<div class="time-separator"></div>')
     ;
   }
+
+  export const extractTrailer = (post) => {
+    const myRegexExp = /<figure.*class="post-trailer">(.*)<\/figure>/gm;
+    const match = post.html.match(myRegexExp);
+    post.html = post.html.replace(myRegexExp, '');
+    return {
+      ...post,
+      trailer: match ? match[0] : null,
+    };
+  }

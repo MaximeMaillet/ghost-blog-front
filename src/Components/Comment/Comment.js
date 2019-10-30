@@ -26,7 +26,7 @@ export default class Comment extends Component {
 
   render() {
     return (
-        <div className="comment">
+        <div className={`comment ${this.props.className}`}>
             <div id="coral_thread"></div>
         </div>
     );

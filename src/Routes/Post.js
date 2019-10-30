@@ -4,12 +4,10 @@ import withOnePost from "../Hoc/withOnePost";
 import TopHeader from "../Components/Headers/TopHeader/TopHeader";
 import BackgroundImage from "../Components/BackgroundImage/BackgroundImage";
 import Footer from "../Components/Footer/Footer";
-import Comment from "../Components/Comment/Comment";
 import {Helmet} from "react-helmet";
 
 export class Post extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="container-fluid p-0 container-post">
         <Helmet>
@@ -32,7 +30,6 @@ export class Post extends Component {
         />
         <div className="container">
           <OnePost {...this.props} className="overlap-top" />
-          <Comment />
         </div>
         <Footer
           image={this.props.feature_image}

@@ -96,10 +96,11 @@ article.post {
   display: flex;
   flex-direction: column;
 
-  div.post-header, div.post-body {
+  div.post-header, div.post-body, div.post-footer, div.post-comment {
     background-color: $break-white;
     padding: 1em;
     border-radius: 5px;
+    margin-top: 5vh;
   }
 
   div.post-header {
@@ -133,6 +134,10 @@ article.post {
   }
 
   div.post-body {
+    margin-top: 5vh;
+  }
+
+  div.post-footer {
     margin-top: 5vh;
   }
 }

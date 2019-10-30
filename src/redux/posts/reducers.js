@@ -1,5 +1,5 @@
 import {TYPE} from "./actions";
-import {fetchAndReplaceUrl, convertParagraph} from '../../libraries/text';
+import {fetchAndReplaceUrl, convertParagraph, extractTrailer} from '../../libraries/text';
 
 const initialState = {
   loading: false,
@@ -29,10 +29,14 @@ export default function(state = initialState, actions) {
         if(actions.data.post) {
           actions.data.post = fetchAndReplaceUrl(watchFields, actions.data.post);
           actions.data.post.html = convertParagraph(actions.data.post.html);
+          actions.data.post = extractTrailer(actions.data.post);
         }
         if(actions.data.posts) {
           actions.data.posts.map((item) => {
-            return fetchAndReplaceUrl(watchFields, item);
+            return {
+              ...fetchAndReplaceUrl(watchFields, item),
+              trailer: extractTrailer(item),
+            };
           });
         }
       }

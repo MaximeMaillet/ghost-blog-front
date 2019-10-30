@@ -5,6 +5,7 @@ import Authors from "../Authors/Authors";
 import './posts.scss'
 import Date from "../Date/Date";
 import ReadingTime from "../ReadingTime/ReadingTime";
+import Comment from "../Comment/Comment";
 
 export class Post extends Component {
 
@@ -24,6 +25,7 @@ export class Post extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <article className={`post ${this.props.className}`}>
         <div className="post-header">
@@ -37,6 +39,13 @@ export class Post extends Component {
           </div>
         </div>
         <div className="post-body post-content" dangerouslySetInnerHTML={{__html: this.props.html}} />
+        {this.props.trailer && <div className="post-footer">
+          <h3>Trailer :</h3>
+          <figure dangerouslySetInnerHTML={{__html: this.props.trailer}}></figure>
+        </div>}
+        <div className="post-comment">
+          <Comment />
+        </div>
       </article>
     );
   }
