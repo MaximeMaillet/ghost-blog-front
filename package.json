@@ -78,8 +78,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "build-sitemap": "node scripts/sitemap.js"
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"

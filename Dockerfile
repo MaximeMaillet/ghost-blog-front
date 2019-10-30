@@ -4,7 +4,7 @@ ENV NODE_ENV=production
 RUN mkdir -p /app
 WORKDIR /app
 COPY ./ /app
-RUN npm install && npm run build-sitemap && npm run build
+RUN npm install && npm run build
 
 FROM nginx:1.15
 
