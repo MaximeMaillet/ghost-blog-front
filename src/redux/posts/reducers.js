@@ -1,22 +1,10 @@
 import {TYPE} from "./actions";
-import {replaceURL} from '../../libraries/api';
+import {fetchAndReplaceUrl, convertParagraph} from '../../libraries/text';
 
 const initialState = {
   loading: false,
   data: {},
 };
-
-const watchField = ['feature_image', 'twitter_image'];
-function fetchAndReplace(posts) {
-  Object.keys(posts).map((post) => {
-    if(watchField.indexOf(post) !== -1) {
-      posts[post] = posts[post] ? replaceURL(posts[post]) : posts[post];
-    }
-    return post;
-  });
-
-  return posts;
-}
 
 export default function(state = initialState, actions) {
   switch(actions.type) {
@@ -36,13 +24,15 @@ export default function(state = initialState, actions) {
         error: actions.error,
       };
     case TYPE.SUCCESS_LOADING:
+      const watchFields = ['feature_image', 'twitter_image'];
       if(actions.data) {
         if(actions.data.post) {
-          actions.data.post = fetchAndReplace(actions.data.post);
+          actions.data.post = fetchAndReplaceUrl(watchFields, actions.data.post);
+          actions.data.post.html = convertParagraph(actions.data.post.html);
         }
         if(actions.data.posts) {
           actions.data.posts.map((item) => {
-            return fetchAndReplace(item);
+            return fetchAndReplaceUrl(watchFields, item);
           });
         }
       }

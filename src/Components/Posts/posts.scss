@@ -57,7 +57,7 @@ article.post-excerpt {
         -o-text-overflow: ellipsis;
         max-width: 100%;
         overflow: hidden;
-        font-size: 2em;
+        font-size: 1.5em;
         border-bottom: 1px solid $primary;
         padding-bottom: 0.5em;
         margin-bottom: 0.5em;
@@ -65,7 +65,7 @@ article.post-excerpt {
       }
   
       .excerpt {
-        font-size: 1.5em;
+        font-size: 1em;
         word-spacing: 0rem;
         padding: 0;
       }
@@ -77,13 +77,17 @@ article.post-excerpt {
       overflow: hidden;
   
       div.reading-time {
-        max-width: 50%;
         margin-left: auto;
       }
     }
   }
 
+  a {
+    color: $black;
+  }
+
   a:hover {
+    color: $grey;
     text-decoration: none;
   }
 }
@@ -105,10 +109,15 @@ article.post {
 
     div.post-data {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+
+      .reading-time {
+        order: 2;
+      }
 
       .post-date {
-        margin-left: auto;
+        font-size: 0.8em;
+        order: 1;
         color: $grey;
         text-align: right;
         font-style: italic;
@@ -116,10 +125,10 @@ article.post {
     }
 
     h1.post-title {
+      font-family: 'Sabon', serif;
       margin: 1em 0;
       text-align: center;
-      font-family: 'DM Serif Text', serif;
-      font-size: 3em;
+      font-size: 2em;
     }
   }
 
@@ -154,6 +163,23 @@ div.post-loading {
       }
     }
   }
+
+  article.post {
+    div.post-header {
+      div.post-data {
+        flex-direction: row;
+
+        .reading-time {
+          order: 1;
+        }
+  
+        .post-date {
+          order: 2;
+          margin-left: auto;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -174,12 +200,6 @@ div.post-loading {
       .body {
         h2 {
           text-align: left;
-        }
-      }
-
-      .footer {
-        div.reading-time {
-          max-width: 30%;
         }
       }
     }

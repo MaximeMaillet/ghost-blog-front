@@ -8,6 +8,20 @@ body, html {
   background-color: $primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 25px;
+  font-family: 'Garamond', serif;
+
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 992px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 16px;
+  }
 
   a {
     color: $secondary;
@@ -119,10 +133,36 @@ body, html {
 }
 
 .post-content {
-  text-align: justify;
-  font-family: 'Crimson Text', serif;
-  font-size: 1.5em;
+  font-family: 'Garamond', serif;
+  font-size: 1em;
   padding: 0 0.5em;
+
+  p {
+    margin-bottom: 0.3rem;
+  }
+
+  div.paragraph {
+    height: 2rem;
+  }
+
+  div.start-dialog {
+    margin-top: 0.8rem;
+  }
+  
+  div.end-dialog {
+    margin-bottom: 0.8rem;
+  }
+
+  div.time-separator {
+    margin: 2rem 0;
+
+    &:before {
+      font-weight: 800;
+      display: block;
+      content: '* * *';
+      text-align: center;
+    }
+  }
 
   ul {
     list-style-type: none;
@@ -131,18 +171,6 @@ body, html {
     li::before {
       content: '\2013';
       margin-right: 0.5em;
-    }
-  }
-
-  hr {
-    margin: 1em 0 2em 0;
-    border: none;
-    font-weight: bold;
-
-    &:before {
-      display: block;
-      content: '* * *';
-      text-align: center;
     }
   }
 }

@@ -29,9 +29,7 @@ export class Post extends Component {
         <div className="post-header">
           <h1 className="post-title">{this.props.title}</h1>
           <div className="post-data">
-            <div className="post-reading-time">
-              <ReadingTime readingTime={this.props.readingTime} />
-            </div>
+            <ReadingTime readingTime={this.props.readingTime} />
             <div className="post-date">
               <div className="date"><Date date={this.props.published_at} /></div>
               <Authors className="authors" authors={this.props.authors} />

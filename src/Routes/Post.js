@@ -9,10 +9,13 @@ import {Helmet} from "react-helmet";
 
 export class Post extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="container-fluid p-0 container-post">
         <Helmet>
-          <title>{this.props.title}</title>
+          <title>{this.props.meta_title}</title>
+          <meta name="description" content={this.props.meta_description} />
+          <meta name="google" content="notranslate" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@DeuxMaxfr" />
           <meta property="og:type" content="article" />
