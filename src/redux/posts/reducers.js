@@ -24,21 +24,25 @@ export default function(state = initialState, actions) {
         error: actions.error,
       };
     case TYPE.SUCCESS_LOADING:
-      const watchFields = ['feature_image', 'twitter_image'];
-      if(actions.data) {
-        if(actions.data.post) {
-          actions.data.post = fetchAndReplaceUrl(watchFields, actions.data.post);
-          actions.data.post.html = convertParagraph(actions.data.post.html);
-          actions.data.post = extractTrailer(actions.data.post);
+      try {
+        const watchFields = ['feature_image', 'twitter_image'];
+        if(actions.data) {
+          if(actions.data.post) {
+            actions.data.post = fetchAndReplaceUrl(watchFields, actions.data.post);
+            actions.data.post.html = convertParagraph(actions.data.post.html);
+            actions.data.post = extractTrailer(actions.data.post);
+          }
+          if(actions.data.posts) {
+            actions.data.posts.map((item) => {
+              return {
+                ...fetchAndReplaceUrl(watchFields, item),
+                trailer: extractTrailer(item),
+              };
+            });
+          }
         }
-        if(actions.data.posts) {
-          actions.data.posts.map((item) => {
-            return {
-              ...fetchAndReplaceUrl(watchFields, item),
-              trailer: extractTrailer(item),
-            };
-          });
-        }
+      } catch(e) {
+        console.log(e);
       }
       return {
         ...state,

@@ -23,8 +23,8 @@ export const fetchAndReplaceUrl = (watchFields, data) => {
 
   export const extractTrailer = (post) => {
     const myRegexExp = /<figure.*class="post-trailer">(.*)<\/figure>/gm;
-    const match = post.html.match(myRegexExp);
-    post.html = post.html.replace(myRegexExp, '');
+    const match = post.html ? post.html.match(myRegexExp) : null;
+    post.html = post.html ? post.html.replace(myRegexExp, '') : null;
     return {
       ...post,
       trailer: match ? match[0] : null,
