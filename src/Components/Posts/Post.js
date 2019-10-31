@@ -25,7 +25,6 @@ export class Post extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <article className={`post ${this.props.className}`}>
         <div className="post-header">

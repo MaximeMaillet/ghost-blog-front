@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import TagManager from 'react-gtm-module'
 
 import {Provider} from "react-redux";
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
@@ -21,10 +20,6 @@ let store = createStore(
     thunkMiddleware
   ))
 );
-
-TagManager.initialize({
-  gtmId: 'GTM-TBG4PJ4'
-})
 
 ReactDOM.render(
   <Provider store={store} >

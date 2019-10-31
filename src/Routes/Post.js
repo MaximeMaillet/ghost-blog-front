@@ -5,8 +5,32 @@ import TopHeader from "../Components/Headers/TopHeader/TopHeader";
 import BackgroundImage from "../Components/BackgroundImage/BackgroundImage";
 import Footer from "../Components/Footer/Footer";
 import {Helmet} from "react-helmet";
+import scrollDepth from 'scroll-depth'
+
 
 export class Post extends Component {
+
+  eventHandler = (data) => {
+    if(data.eventLabel === '75%') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'custom',
+        'gtm.scrollThreshold': 88,
+      });
+    }
+  }
+
+  componentWillReceiveProps(){
+    scrollDepth.reset();
+  }
+
+  componentDidMount() {
+    scrollDepth({
+      userTiming: false,
+      eventHandler: this.eventHandler
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid p-0 container-post">
@@ -29,7 +53,7 @@ export class Post extends Component {
           splash={this.props.feature_image}
         />
         <div className="container">
-          <OnePost {...this.props} className="overlap-top" />
+          <OnePost {...this.props} handleScroll={this.handleScroll} className="overlap-top" />
         </div>
         <Footer
           image={this.props.feature_image}
