@@ -43,21 +43,18 @@ class Footer extends Component {
 
   render() {
     return (
-      <footer className="footer d-flex flex-column align-items-center justify-content-center" style={{
+      <footer className="footer" style={{
         backgroundImage: `url('${this.props.image}')`,
       }}>
-        <div className="text">
-          <div className="subscribers-mobile container">
-            <Subscribers />
-          </div>
-          <div className="container d-flex flex-row">
-            <div className="about">
-              {this.props.ghost_foot}
-            </div>
-            <div className="subscribers">
+        <div className="container-fluid d-flex align-items-center justify-content-center footer-content">
+          <div className="container row p-5">
+            <div className="col-12 subscribers">
               <Subscribers />
             </div>
-            <div className="links d-flex flex-row ml-auto">
+            <div className="col-12 col-lg-4 about">
+              {this.props.ghost_foot}
+            </div>
+            <div className="col-12 col-lg-8 d-flex flex-row ml-auto links">
               <div className="part posts">
                 <h4>Histoires</h4>
                 <div className="d-flex flex-column">

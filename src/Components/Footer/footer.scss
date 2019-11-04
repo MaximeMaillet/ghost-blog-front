@@ -1,67 +1,42 @@
 @import '../../styles/colors.scss';
 
-footer {
-  height: 50vh;
+footer.footer {
+  // height: 60vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-color: $secondary;
-  margin-top: 2rem;
-  -webkit-box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
-  -moz-box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
-  box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
+  background-color: $primary;
+  margin-top: 20vh;
+  padding-top: 15vh;
 
-  .subscribers-mobile {
-    display: none;
-    @media screen and (max-width: 800px) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1em;
-    }
-  }
-
-  .text {
-    width: 100%;
+  .footer-content {
+    -webkit-box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
+    -moz-box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
+    box-shadow: -1px -6px 14px -1px rgba(0,0,0,0.38);
     background-color: $primary;
-    height: 100%;
-    margin: 15vh 0 5vh 0;
-    color: $white;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+
+    .about, .subscribers, .links {
+      color: $white;
+      margin: 1rem 0;
+      font-size: 0.8em;
+    }
 
     .about {
       text-align: justify;
-      flex: 1;
-    }
-
-    .subscribers {
-      flex: 2;
-      margin: 0 1em;
-      justify-content: center;
-      align-items: center;
-
-      @media screen and (max-width: 800px) {
-        display: none;
-      }
     }
 
     .links {
-      flex: 2;
-      margin-left: auto;
-    }
-
-    .part {
-      margin: 0 1em;
-      h4 {
-        font-size: 0.8em;
-        color: $grey;
+      .part {
+        margin: 0 1rem;
       }
 
-      a {
-        font-size: 0.7em;
+      h4 {
+        color: $secondary;
+        font-size: 0.9em;
+      }
+
+      a, a:hover {
         color: $white;
-        display: inline;
       }
     }
   }
