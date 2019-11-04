@@ -47,14 +47,14 @@ class Footer extends Component {
         backgroundImage: `url('${this.props.image}')`,
       }}>
         <div className="container-fluid d-flex align-items-center justify-content-center footer-content">
-          <div className="container row p-5">
+          <div className="container row">
             <div className="col-12 subscribers">
               <Subscribers />
             </div>
             <div className="col-12 col-lg-4 about">
               {this.props.ghost_foot}
             </div>
-            <div className="col-12 col-lg-8 d-flex flex-row ml-auto links">
+            <div className="col-12 col-lg-8 d-flex links">
               <div className="part posts">
                 <h4>Histoires</h4>
                 <div className="d-flex flex-column">
