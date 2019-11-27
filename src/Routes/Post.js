@@ -15,7 +15,7 @@ export class Post extends Component {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         'event': 'custom',
-        'gtm.scrollThreshold': 88,
+        'gtm.scrollThreshold': 75,
       });
     }
   }
