@@ -5104,6 +5104,11 @@ jest@24.7.1:
     import-local "^2.0.0"
     jest-cli "^24.7.1"
 
+jquery@>=1.8:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
+
 js-base64@^2.1.8:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
@@ -5803,9 +5808,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-moment@^2.10.6, moment@^2.15.2, moment@^2.18.1, moment@^2.24.0:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+moment@^2.10.6, moment@^2.15.2, moment@^2.18.1, moment@^2.29.2:
+  version "2.29.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.2.tgz#00910c60b20843bcba52d37d58c628b47b1f20e4"
+  integrity sha512-UgzG4rvxYpN15jgCmVJwac49h9ly9NurikMWGPdVxm8GZD6XjkKPxDTjQQ43gtGgnV3X0cAyWDdP2Wexoquifg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -7916,6 +7922,13 @@ schema-utils@^1.0.0:
     ajv "^6.1.0"
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
+
+scroll-depth@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/scroll-depth/-/scroll-depth-1.2.0.tgz#6bb18d35ce7ff0ca6676df6af8eb6fa5f5ad7d6d"
+  integrity sha512-DULK5sSTABAR7xw9ULn6ls6R2J2M1nJIMavEyeckK7ulLPA0fymANX4Del+Jbz5k5HPKv24DRGqKOKw939y1pw==
+  dependencies:
+    jquery ">=1.8"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
